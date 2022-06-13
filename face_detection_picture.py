@@ -5,20 +5,28 @@ Created on Mon Mar 14 19:15:23 2022
 @author: Ale
 """
 
+import argparse
 import cv2
 import mediapipe as mp
 from edition import crop_face
+from utils import getBaseName
+
 mp_face_detection = mp.solutions.face_detection
 mp_drawing = mp.solutions.drawing_utils
 
-img_path = 'input/test.jpg'
-out_path = 'output/'
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-i', '--img_path', type=str, default='input/test1.jpg',
+                    help='Please specify path for image', required=True)
+
+parser.add_argument('-o', '--out_path', type=str, default='output/',
+                    help='Please specify path for folder out', required=True)
+
+opt = parser.parse_args()
 
 
-
-# with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence=0.5) as face_detection:
 with mp_face_detection.FaceDetection() as face_detection:
-    image = cv2.imread(img_path)
+    image = cv2.imread(opt.img_path)
     height, width, _ = image.shape
     image.flags.writeable = False
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -29,13 +37,12 @@ with mp_face_detection.FaceDetection() as face_detection:
     if results.detections:
         for idx, detection in enumerate(results.detections):
             mp_drawing.draw_detection(image, detection)
-            
+
             img_crop = crop_face(image, detection, height, width)
-            img_name_out = out_path+str(idx)+'.jpg'
+            img_name_out = getBaseName(opt.img_path)+str(idx)+'.jpg'
             cv2.imwrite(img_name_out, img_crop)
 
-            
-    cv2.imwrite(out_path+'detection.jpg', image)
+    cv2.imwrite(opt.out_path+getBaseName(opt.img_path)+'_detection.jpg', image)
     cv2.imshow('MediaPipe Face Detection', image)
     if cv2.waitKey(0) & 0xFF == 27:
         cv2.destroyAllWindows()

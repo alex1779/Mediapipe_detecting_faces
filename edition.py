@@ -19,3 +19,4 @@ def crop_face(image, detection, height, width):
     img_crop = image[y1:y2, x1:x2]
 
     return img_crop
+

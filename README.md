@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 ## For running
 ```
-python face_detection_picture.py -i 'input/test.jpg'
+python face_detection_picture.py -i input/test.jpg -o output/
 
 ```
 
