@@ -10,11 +10,12 @@ opencv-python==4.5.5.64
 
 ## Installation on Windows using Anaconda
 ```
-conda create -n Mediapipe_detecting_faces  -y && conda activate Mediapipe_detecting_faces  && conda install python=3.9.7 -y
-git clone https://github.com/alex1779/Mediapipe_detecting_faces .git
-cd Mediapipe_detecting_faces 
+conda create -n Mediapipe_detecting_faces -y && conda activate Mediapipe_detecting_faces && conda install python=3.9.7 -y
+git clone https://github.com/alex1779/Mediapipe_detecting_faces.git
+cd Mediapipe_detecting_faces
 pip install -r requirements.txt
 ```
+
 
 ## For running
 ```
