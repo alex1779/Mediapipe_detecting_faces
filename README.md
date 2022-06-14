@@ -17,15 +17,31 @@ pip install -r requirements.txt
 ```
 
 
-## For running
+## face_detection_picture.py
+this is the direct result of implementation the mediapipe function called as mp.solutions.face_detection:
+
 ```
 python face_detection_picture.py -i input/test.jpg -o output/
 ```
-You can see the result of mp.solutions.face_detection:
 
 ![Test](https://github.com/alex1779/Mediapipe_detecting_faces/blob/master/imgs/test.jpg)
 
  
+
+## face_detection_picture_mesh.py
+this is the result using mp.solutions.face_mesh:
+
+```
+python face_detection_picture_mesh.py -i input/test.jpg -o output/
+```
+
+![Test2](https://github.com/alex1779/Mediapipe_detecting_faces/blob/master/imgs/test2.jpg)
+
+
+## differences
+We can see the difference that the last result gives us:
+
+![result](https://github.com/alex1779/Mediapipe_detecting_faces/blob/master/imgs/results2.jpg)
 
 ## License
 
