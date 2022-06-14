@@ -38,8 +38,8 @@ with mp_face_detection.FaceDetection() as face_detection:
         for idx, detection in enumerate(results.detections):
             mp_drawing.draw_detection(image, detection)
 
-            img_crop = crop_face(image, detection, height, width)
-            img_name_out = getBaseName(opt.img_path)+str(idx)+'.jpg'
+            img_crop = crop_face(image, detection)
+            img_name_out = opt.out_path+getBaseName(opt.img_path)+str(idx)+'.jpg'
             cv2.imwrite(img_name_out, img_crop)
 
     cv2.imwrite(opt.out_path+getBaseName(opt.img_path)+'_detection.jpg', image)
