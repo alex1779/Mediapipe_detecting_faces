@@ -20,11 +20,12 @@ pip install -r requirements.txt
 ## For running
 ```
 python face_detection_picture.py -i input/test.jpg -o output/
-
 ```
+You can see the result of mp.solutions.face_detection:
 
 ![Test](https://github.com/alex1779/Mediapipe_detecting_faces/blob/master/imgs/test.jpg)
 
+ 
 
 ## License
 
